@@ -2,7 +2,7 @@ import requests
 from PIL import Image
 from io import BytesIO
 import os
-import json #Se importan librerias para el guardado de imagenes y el aarchivo json
+import json #Se importan librerias para el guardado de imagenes y el archivo json
 
 def obtener_datos_pokemon(nombre):
     url = f"https://pokeapi.co/api/v2/pokemon/{nombre.lower()}"
@@ -39,7 +39,7 @@ def mostrar_guardar_imagen(imagen_url, nombre):
     
     ruta_imagen = os.path.join(carpeta, f"{nombre}.png")
     imagen.save(ruta_imagen)
-
+ # Guardar datos en la carpeta 'pokedex_datos'
 def guardar_datos_json(pokemon, carpeta='pokedex_datos'):
     if not os.path.exists(carpeta):
         os.makedirs(carpeta)
@@ -57,7 +57,7 @@ if pokemon:
     print(f"Habilidades: {', '.join(pokemon['habilidades'])}")
     print(f"Tipos: {', '.join(pokemon['tipos'])}")
     print(f"Peso: {pokemon['peso'] / 10} kg")  # Convertir el peso a kg
-    print(f"Tamano: {pokemon['tamano'] / 10} m")  # Convertir el tamaño a metros
+    print(f"Tamano: {pokemon['tamano'] / 10} m")  # Convertir el tamaÃ±o a metros
     mostrar_guardar_imagen(pokemon['imagen_url'], pokemon['nombre'])
     guardar_datos_json(pokemon)
 else:
